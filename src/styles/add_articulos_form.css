@@ -1,0 +1,7 @@
+.add-article-form{
+    margin-top: 20px;
+    border-top: 1px solid darkblue;
+}
+.no-resize{
+    resize: none;
+}

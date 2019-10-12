@@ -1,0 +1,12 @@
+.user-account-component{
+    display: flex;
+    margin-right: 40px;
+}
+.user-info{
+    margin-left: 20px;
+    text-align: right;
+}
+.user-img{
+    max-width: 56px;
+    height: auto;
+}
