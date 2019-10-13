@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 function SideBar(){
     return(
@@ -13,7 +14,7 @@ function SideBar(){
                 <a class="nav-link active" href="#" data-toggle="collapse" data-target="#ofrecidosSubM">Artículos que ofresco</a>
                 <ul class="collapse list-unstyled" id="ofrecidosSubM">
                     <li>
-                        <a href="#">Administrar artículos</a>
+                        <NavLink to={"/articulos"}>Administrar artículos</NavLink>
                     </li>
                     <li>
                         <a href="#">Ver atículos arrendados</a>
