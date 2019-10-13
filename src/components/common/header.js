@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/header.css';
-import user_image from '../static/img/user_image.png'
+import '../../styles/header.css';
+import user_image from '../../static/img/user_image.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 

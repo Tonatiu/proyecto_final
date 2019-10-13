@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/add_articulos_form.css'
+import '../../styles/add_articulos_form.css';
 
 function AddArticulosForm(){
     return(
@@ -8,8 +8,14 @@ function AddArticulosForm(){
                 <div className="form-group">
                     <label for="articulo-name">Nombre del artículo</label>
                     <input type="text" className="form-control" id="articulo-name" placeholder="Nombre del artículo"/>
+                </div>
+                <div className="form-group">
                     <label for="articulo-price">Precio del artículo</label>
                     <input type="text" className="form-control" id="articulo-price" placeholder="Precio del artículo"/>
+                </div>
+                <div className="form-group">
+                    <label for="articulo-quantity">Cantidad de artículos</label>
+                    <input type="text" className="form-control" id="articulo-quantity" placeholder="Cantidad de artículos"/>
                 </div>
                 <div className="form-group">
                     <label for="articuloDescripcion">Descripción del artículo</label>

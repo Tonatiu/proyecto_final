@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ArticulosAdmin from './components/articulos_admin.js'
-import Header from './components/header.js'
-import Footer from './components/footer.js'
+import MainPage from './components/main';
+import Header from './components/common/header';
+import Footer from './components/common/footer';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<Header />, document.getElementById('header'))
-ReactDOM.render(<ArticulosAdmin />, document.getElementById('root'));
+ReactDOM.render(<MainPage />, document.getElementById('root'));
 ReactDOM.render(<Footer />, document.getElementById('footer'));
 
 // If you want your app to work offline and load faster, you can change
