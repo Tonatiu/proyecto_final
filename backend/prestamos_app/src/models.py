@@ -1,18 +1,26 @@
 from django.db import models
+from .custom_types import EncryptedField
 
 class Tipousuario(models.Model):
     idtipousuario = models.AutoField(db_column='idTipoUsuario', primary_key=True)
     descripcion = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.descripcion
 
     class Meta:
         managed = False
         db_table = 'tipousuario'
 
 class Persona(models.Model):
-    nombres = models.CharField(max_length=300)
-    primerapellido = models.CharField(db_column='primerApellido', max_length=300)
-    segundoapellido = models.CharField(db_column='segundoApellido', max_length=300, blank=True, null=True)   
+    idPersona = models.AutoField(db_column='id', primary_key=True)
+    nombres = EncryptedField(max_length=300)
+    primerapellido = EncryptedField(db_column='primerApellido', max_length=300)
+    segundoapellido = EncryptedField(db_column='segundoApellido', max_length=300, blank=True, null=True)   
     birthdate = models.DateField(db_column='birthDate')
+
+    def __str__(self):
+        return "{} {} {}".format(self.nombres, self.primerapellido, self.segundoapellido)
 
     class Meta:
         managed = False
@@ -21,17 +29,21 @@ class Persona(models.Model):
 class Usuario(models.Model):
     idusuario = models.AutoField(db_column='idUsuario', primary_key=True)
     alias = models.CharField(max_length=45)
-    idpersona = models.ForeignKey(Persona, models.DO_NOTHING, db_column='idPersona')
-    email = models.CharField(unique=True, max_length=300)
-    passwd = models.CharField(max_length=300)
-    idtipousuario = models.ForeignKey(Tipousuario, models.DO_NOTHING, db_column='idTipoUsuario')
+    persona = models.ForeignKey(Persona, models.DO_NOTHING, db_column='idPersona')
+    email = EncryptedField(db_column='email', max_length=300, unique=True)
+    passwd = EncryptedField(db_column='passwd', max_length=300)
+    tipousuario = models.ForeignKey(Tipousuario, models.DO_NOTHING, db_column='idTipoUsuario', related_name='tipousuario')
     eliminado = models.BooleanField ()  # This field type is a guess.
+
+    def __str__(self):
+        return self.alias
 
     class Meta:
         managed = False
         db_table = 'usuario'
 
 class Contacto(models.Model):
+    idContacto = models.AutoField(db_column='id', primary_key=True)
     telefono = models.CharField(max_length=300)
     email = models.CharField(max_length=300)
     idpersona = models.ForeignKey('Persona', models.DO_NOTHING, db_column='idPersona')
@@ -65,7 +77,10 @@ class Cuenta(models.Model):
 
 class Keywords(models.Model):
     idkeywords = models.AutoField(db_column='idKeyWords', primary_key=True)
-    descripcio = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.descripcion
 
     class Meta:
         managed = False
@@ -74,6 +89,9 @@ class Keywords(models.Model):
 class Categoria(models.Model):
     idcategoria = models.AutoField(db_column='idCategoria', primary_key=True)
     descripcion = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.descripcion
 
     class Meta:
         managed = False
@@ -89,6 +107,9 @@ class Articulo(models.Model):
     eliminado = models.BooleanField()
     keywords = models.ManyToManyField(Keywords)
     categorias = models.ManyToManyField(Categoria)
+
+    def __str__(self):
+        return self.nombrearticulo
 
     class Meta:
         managed = False
@@ -107,8 +128,12 @@ class Stock(models.Model):
         db_table = 'stock'
 
 class Foto(models.Model):
+    idFoto = models.AutoField(db_column='id', primary_key=True)
     url = models.CharField(max_length=450)
     articulo = models.ForeignKey(Articulo, models.DO_NOTHING, db_column='idArticulo')
+
+    def __str__(self):
+        return self.url
 
     class Meta:
         managed = False

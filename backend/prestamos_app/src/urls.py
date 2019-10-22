@@ -5,7 +5,10 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
-router.register(r'articulos', views.ArticuloViewSet)
+router.register(r'articulo', views.ArticuloViewSet)
+router.register(r'usuario', views.UsuarioViewSet)
+router.register(r'tipo_usuario', views.TipoUsuarioViewSet)
+router.register(r'persona', views.PersonaViewSet)
 
 urlpatterns = [
     # Rutas para la url /api/
