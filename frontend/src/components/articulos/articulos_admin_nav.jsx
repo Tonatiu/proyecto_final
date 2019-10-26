@@ -9,11 +9,9 @@ function ArticulosAdminNav(){
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <NavLink className="nav-link" to={'/articulos/inventario'}><FontAwesomeIcon icon={faBoxes}/> Inventario</NavLink>
-                    {/*<a className="nav-link" href="/articulos/inventario"></a>*/}
                 </li>
                 <li className="nav-item">
                     <NavLink className="nav-link" to={'/articulos/agregar'}><FontAwesomeIcon icon={faPlus}/> Agregar artículo</NavLink>
-                    {/*<a className="nav-link active" href="/articulos/agregar"><FontAwesomeIcon icon={faPlus}/> Agregar artículo</a>*/}
                 </li>
             </ul>
         </div>

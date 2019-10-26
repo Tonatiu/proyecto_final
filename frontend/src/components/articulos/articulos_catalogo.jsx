@@ -1,6 +1,7 @@
 import React from 'react';
 import ArticulosAdminNav from './articulos_admin_nav';
 import SideBar from '../common/side_bar';
+import ArticulosList from './articulos_list';
 
 function ArticulosCatalogo(){
     return(
@@ -14,6 +15,7 @@ function ArticulosCatalogo(){
                     <h5>Articulos / Inventario</h5>
                 </div>
                 <ArticulosAdminNav/>
+                <ArticulosList/>
             </div>
         </div>
     );
