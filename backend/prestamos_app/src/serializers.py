@@ -21,7 +21,7 @@ class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
     #tipousuario = TipoUsuarioSerializer(many=True, read_only=True)
     class Meta:
         model = Usuario
-        fields = ('idusuario', 'alias', 'email', 'passwd', 'persona', 'tipousuario', 'eliminado')
+        fields = ('idusuario', 'alias', 'email', 'passwd', 'tipousuario', 'eliminado')
 
 class CategoriaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

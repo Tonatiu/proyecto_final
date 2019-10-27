@@ -2,11 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import MainPage from './components/main';
-import HeaderRouter from './components/common/header_router';
 import Footer from './components/common/footer';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<HeaderRouter />, document.getElementById('header'))
 ReactDOM.render(<MainPage />, document.getElementById('root'));
 ReactDOM.render(<Footer />, document.getElementById('footer'));
 

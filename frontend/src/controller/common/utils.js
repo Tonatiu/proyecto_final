@@ -1,5 +1,5 @@
 export const isUn = value=>{
-    return value == undefined || value == null;
+    return value === undefined || value === null;
 };
 
 export const isEmpty = value=>{

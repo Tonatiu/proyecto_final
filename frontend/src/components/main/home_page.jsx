@@ -12,7 +12,7 @@ class HomePage extends React.Component{
         return <div className="container-fluid">
             <div className="row">
                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
+                    <div className="carousel-inner">
                         <div className="carousel-item active">
                             <img src={Primera} className="img-fluid"/>
                         </div>

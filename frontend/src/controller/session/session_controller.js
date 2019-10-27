@@ -7,11 +7,11 @@ class SessionController{
         this.url = 'http://localhost:8000/api/usuario';
     };
 
-    createUser(action, user){
-        launchAction(axios.post(this.url, {user}), action);
+    createUser(user, action){
+        launchAction(axios.post(this.url, user), action);
     }
 
-    validateUser(action, user){
+    validateUser(user, action){
         launchAction(axios.post(this.url, {user}), action);
     }
 
@@ -22,3 +22,5 @@ class SessionController{
         return SessionController.instance;
     };
 }
+
+export default SessionController;
