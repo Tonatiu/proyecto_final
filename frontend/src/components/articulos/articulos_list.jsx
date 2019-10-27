@@ -1,25 +1,28 @@
 import React from 'react';
 import ArticulosController from '../../controller/articulos/articulos_controller';
 import Table from '../common/table';
+import {isEmpty} from '../../controller/common/utils';
 
 class ArticulosList extends React.Component{
     constructor(props){
+        super(props);
         this.state = {
-            articulos: []
+            articulos: [],
+            headers: []
         };
-        this.headers = ['#', 'Artículo', 'Descripción', 'Cantidad', 'Precio'];
     }
     
 
     componentDidMount(){
         ArticulosController.getInstance().getArticulos(responce => {
-            const articulos = responce.data;
-            this.setState({articulos});
+            var articulos = responce.data;
+            const headers =  ['#', 'Artículo', 'Descripción', 'Cantidad', 'Precio'];
+            this.setState({articulos, headers});
         });
     }
 
     render(){
-        return <Table header={this.headers} content={this.state.articulos} />
+        return isEmpty(this.state.articulos) ? <div>Loading...</div>: <Table headers={this.state.headers} content={this.state.articulos} />
     }
 };
 

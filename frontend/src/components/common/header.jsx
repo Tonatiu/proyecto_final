@@ -1,8 +1,12 @@
 import React from 'react';
 import '../../styles/header.css';
 import user_image from '../../static/img/user_image.png'
+import logo2 from '../../static/img/logo2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+import CategoriasSelector from './categorias_selector';
+import {NavLink} from 'react-router-dom';
+
 
 function Header(){
     return(
@@ -11,7 +15,9 @@ function Header(){
                 <div className="row">
                     <div className="col">
                         <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-                            <a className="navbar-brand" href="#">Navbar</a>
+                            <a className="navbar-brand" href="#">
+                                <img src={logo2}  width="80" height="60" alt=""/>
+                            </a>
                             <div className="user-account-component row">
                                 <img src={user_image} className="img-thumbnail user-img"/>
                                 <div className="user-info">
@@ -27,37 +33,30 @@ function Header(){
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col">
-                        <nav className="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+                    <div className="col bg-light">
+                        <nav className="navbar navbar-expand-lg navbar-light justify-content-between">
                             <a className="navbar-brand" href="#"><FontAwesomeIcon icon={faMapMarkerAlt} /> Ubicación</a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
+                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul className="navbar-nav mr-auto">
-                                    <li className="nav-item active">
-                                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Link</a>
-                                    </li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Dropdown
+                                        Categorías
                                         </a>
-                                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a className="dropdown-item" href="#">Action</a>
-                                        <a className="dropdown-item" href="#">Another action</a>
-                                        <div className="dropdown-divider"></div>
-                                        <a className="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                        <CategoriasSelector/>
                                     </li>
                                 </ul>
                             </div>
                         </nav>
+                    </div>
+                    <div className="col bg-light">
+                        <ul className="nav float-right navbar-light">
+                            <li className="nav-item"><NavLink className="nav-link" to="/registrar">Crear cuenta</NavLink></li>
+                            <li className="nav-item"><NavLink className="nav-link" to="/ingresar">Inicia sesión</NavLink></li>
+                            <li className="nav-item"><a className="nav-link" href="#"><FontAwesomeIcon icon={faShoppingBag}/> Carrito</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

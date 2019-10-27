@@ -1,6 +1,7 @@
 import React from 'react';
 import AgregarArticulos from './articulos/agregar_articulos';
 import ArticulosCatalogo from './articulos/articulos_catalogo';
+import HomePage from './main/home_page';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function MainPage(){
@@ -8,6 +9,7 @@ function MainPage(){
         <Router>
             <div className="container-fluid">
                 <Switch>
+                    <Route path="/" exact component={HomePage}/>
                     <Route path="/articulos" exact component={ArticulosCatalogo}/>
                     <Route path="/articulos/inventario" component={ArticulosCatalogo}/>
                     <Route path="/articulos/agregar" component={AgregarArticulos}/>

@@ -1,11 +1,12 @@
 import React from 'react';
-import Utils from '../../controller/common/utils';
+import {isEmpty} from '../../controller/common/utils';
 
 class Table extends React.Component {
     constructor(props){
+        super(props);
         this.state = {
-            headers: Utils.getInstance().isEmpty(props.headers) ? []: props.headers,
-            content: Utils.getInstance().isEmpty(props.content) ? []: props.content
+            headers: isEmpty(props.headers) ? []: props.headers,
+            content: isEmpty(props.content) ? []: props.content
         };
     }
 

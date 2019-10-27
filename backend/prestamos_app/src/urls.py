@@ -9,6 +9,7 @@ router.register(r'articulo', views.ArticuloViewSet)
 router.register(r'usuario', views.UsuarioViewSet)
 router.register(r'tipo_usuario', views.TipoUsuarioViewSet)
 router.register(r'persona', views.PersonaViewSet)
+router.register(r'categoria', views.CategoriaViewSet)
 
 urlpatterns = [
     # Rutas para la url /api/

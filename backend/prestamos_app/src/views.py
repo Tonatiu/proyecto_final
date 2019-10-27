@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Articulo, Usuario, Tipousuario, Persona
-from .serializers import ArticuloSerializer, UsuarioSerializer, TipoUsuarioSerializer, PersonaSerializer
+from .models import Articulo, Usuario, Tipousuario, Persona, Categoria
+from .serializers import ArticuloSerializer, UsuarioSerializer, TipoUsuarioSerializer, PersonaSerializer, CategoriaSerializer
 # Create your views here.
 
 class ArticuloViewSet(viewsets.ModelViewSet):
@@ -19,3 +19,7 @@ class TipoUsuarioViewSet(viewsets.ModelViewSet):
 class PersonaViewSet(viewsets.ModelViewSet):
     queryset = Persona.objects.all().order_by('idPersona')
     serializer_class = PersonaSerializer
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer

@@ -1,22 +1,15 @@
+export const isUn = value=>{
+    return value == undefined || value == null;
+};
 
-class Utils{
-    static instance = null;
-    constructor(){}
-    
-    isUn(value){
-        return value == undefined || value == null;
-    };
-    
-    isEmpty(value){
-        return this.isUn() || value === "" || (!this.isUn(value.length) && value.length <= 0);
-    };
+export const isEmpty = value=>{
+    return isUn(value) || value === "" || (!isUn(value.length) && value.length <= 0);
+};
 
-    getInstence(){
-        if(instance == undefined || instance == null){
-            instance = new Utils();
+export const launchAction = (promise, action) => {
+    promise.then(responce => {
+        if(!isUn(action)){
+            action(responce);
         }
-        return instance;
-    };
-}
-
-export default Utils;
+    });
+};

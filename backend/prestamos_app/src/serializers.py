@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Articulo, Usuario, Tipousuario, Persona
+from .models import Articulo, Usuario, Tipousuario, Persona, Categoria
 
 class ArticuloSerializer(serializers.HyperlinkedModelSerializer):
     """Serial para atender las conversiones de los artículos"""
@@ -22,3 +22,8 @@ class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Usuario
         fields = ('idusuario', 'alias', 'email', 'passwd', 'persona', 'tipousuario', 'eliminado')
+
+class CategoriaSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Categoria
+        fields = ('idcategoria', 'descripcion')

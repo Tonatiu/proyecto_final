@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Utils from '../common/utils';
+import {isUn, launchAction} from '../common/utils';
 
 class ArticulosController{
     static instance = null;
@@ -8,18 +8,14 @@ class ArticulosController{
     };
 
     getArticulos(action){
-        axios.get(this.urlHome).then(responce => {
-            if(!Utils.getInstance().isUn(action)){
-                action(responce);
-            }
-        });
+        launchAction(axios.get(this.urlHome), action);
     };
 
     static getInstance(){
-        if(Utils.getInstance()(instance)){
-            instance = new ArticulosController();
+        if(isUn(ArticulosController.instance)){
+            ArticulosController.instance = new ArticulosController();
         }
-        return instance;
+        return ArticulosController.instance;
     }
 };
 
