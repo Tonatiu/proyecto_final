@@ -6,6 +6,6 @@ from .models import *
 admin.site.register(Tipousuario)
 admin.site.register(Persona)
 admin.site.register(Usuario)
-admin.site.register(Keywords)
+admin.site.register(Keyword)
 admin.site.register(Categoria)
 admin.site.register(Articulo)

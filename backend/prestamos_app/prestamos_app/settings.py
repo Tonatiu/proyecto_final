@@ -37,12 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'src',
-    'rest_framework',
     'corsheaders',
+    'rest_framework',
+    'src',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
@@ -128,7 +128,4 @@ STATIC_URL = '/static/'
 SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 
 #Cors origins
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000'
-]
+CORS_ORIGIN_ALLOW_ALL = True

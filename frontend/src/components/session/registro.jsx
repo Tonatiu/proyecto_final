@@ -67,7 +67,7 @@ class RegistroHanddler extends React.Component{
             email: this.state.email,
             passwd: this.state.passwd,
             eliminado: false,
-            tipousuario:{1}
+            tipousuario: "http://localhost:8000/api/tipo_usuario/2/"
         }
         SessionController.getInstance().createUser(user, ()=>{
             this.setState({redirect: true});
